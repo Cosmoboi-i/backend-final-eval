@@ -45,6 +45,15 @@ const updateCollectionEntry = async (req, res, next) => {
   }
 }
 
+const deleteCollectionEntry = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const collection = await collectionService.deleteCollectionEntry(id);
+    res.status(200).json({ message: "entry deleted", collection, success: true });
+  }
+  catch (e) {
+    next(e);
+  }
 }
 
 module.exports = {
@@ -52,4 +61,5 @@ module.exports = {
   getCollectionEntryById,
   createCollectionEntry,
   updateCollectionEntry,
+  deleteCollectionEntry
 }

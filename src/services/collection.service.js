@@ -29,10 +29,15 @@ const updateCollectionEntry = async (id, content, content_type_id) => {
   return entry;
 }
 
+const deleteCollectionEntry = async (id) => {
+  const entry = await collection.destroy({ where: { id } });
+  return entry;
+}
 
 module.exports = {
   getCollectionsByContentType,
   getCollectionEntryById,
   createCollectionEntry,
   updateCollectionEntry,
+  deleteCollectionEntry
 }
