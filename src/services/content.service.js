@@ -10,6 +10,15 @@ const getAllContentTypes = async () => {
   return contentTypes;
 }
 
+const getContentTypeById = async (id) => {
+  const contentType = await content_type.findByPk(id);
+  if (!contentType) throw new NotFoundError('content type not found');
+  return contentType;
+}
+
+
+
 module.exports = {
   getAllContentTypes,
+  getContentTypeById,
 };

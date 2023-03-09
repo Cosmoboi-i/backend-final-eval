@@ -24,7 +24,19 @@ const getAllContentTypes = async (req, res, next) => {
   }
 };
 
+const getContentTypeById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const contentType = await contentService.getContentTypeById(id);
+    res.status(200).json({ contentType, success: true });
+  } catch (e) {
+    next(e);
+  }
+};
+
+
+
 module.exports = {
   getAllContentTypes,
-
+  getContentTypeById,
 };
