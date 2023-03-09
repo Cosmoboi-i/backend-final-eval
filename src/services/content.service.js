@@ -21,10 +21,19 @@ const createContentType = async (name, structure) => {
   return contentType;
 }
 
+const updateContentType = async (id, name, structure) => {
+  const contentType = await content_type.findOne({ where: { id } });
+  if (!contentType) throw new NotFoundError('content type not found');
+  contentType.name = name;
+  contentType.structure = structure;
+  await contentType.save();
+  return contentType;
+}
 
 
 module.exports = {
   getAllContentTypes,
   getContentTypeById,
   createContentType,
+  updateContentType,
 };

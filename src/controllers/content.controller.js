@@ -44,10 +44,21 @@ const createContentType = async (req, res, next) => {
   }
 };
 
+const updateContentType = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, structure } = req.body;
+    const contentType = await contentService.updateContentType(id, name, structure);
+    res.status(200).json({ message: "content type updated", contentType, success: true });
+  } catch (e) {
+    next(e);
+  }
+};
 
 
 module.exports = {
   getAllContentTypes,
   getContentTypeById,
   createContentType,
+  updateContentType,
 };
