@@ -55,10 +55,20 @@ const updateContentType = async (req, res, next) => {
   }
 };
 
+const deleteContentType = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const contentType = await contentService.deleteContentType(id);
+    res.status(200).json({ message: "content type deleted", message: "content type deleted", contentType, success: true });
+  } catch (e) {
+    next(e);
+  }
+};
 
 module.exports = {
   getAllContentTypes,
   getContentTypeById,
   createContentType,
   updateContentType,
+  deleteContentType,
 };

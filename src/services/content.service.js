@@ -30,10 +30,17 @@ const updateContentType = async (id, name, structure) => {
   return contentType;
 }
 
+const deleteContentType = async (id) => {
+  const contentType = await content_type.findOne({ where: { id } });
+  if (!contentType) throw new NotFoundError('content type not found');
+  await contentType.destroy();
+  return contentType;
+}
 
 module.exports = {
   getAllContentTypes,
   getContentTypeById,
   createContentType,
   updateContentType,
+  deleteContentType,
 };
