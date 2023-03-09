@@ -16,9 +16,15 @@ const getContentTypeById = async (id) => {
   return contentType;
 }
 
+const createContentType = async (name, structure) => {
+  const contentType = await content_type.create({ name, structure });
+  return contentType;
+}
+
 
 
 module.exports = {
   getAllContentTypes,
   getContentTypeById,
+  createContentType,
 };
