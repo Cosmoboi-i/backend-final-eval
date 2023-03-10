@@ -31,7 +31,7 @@ const createCollectionEntry = async (req, res, next) => {
   catch (e) {
     next(e);
   }
-}
+};
 
 const updateCollectionEntry = async (req, res, next) => {
   try {
@@ -43,7 +43,7 @@ const updateCollectionEntry = async (req, res, next) => {
   catch (e) {
     next(e);
   }
-}
+};
 
 const deleteCollectionEntry = async (req, res, next) => {
   try {
@@ -54,7 +54,7 @@ const deleteCollectionEntry = async (req, res, next) => {
   catch (e) {
     next(e);
   }
-}
+};
 
 module.exports = {
   getCollectionByContentType,

@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const validate = async (req, res, next) => {
   const token = req.headers.authorization;
+  console.log(token);
   if (!token) res.status(401).send('Sign in to continue');
   try {
     const result = await axios({
